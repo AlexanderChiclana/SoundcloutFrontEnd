@@ -6,12 +6,36 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+      <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <div id="main">
+      <h1>SoundClout</h1>
+      <img src="http://vinylgif.com/gifs/201412/vinyl-globe-animation.gif" id="globe">
+
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in" class="border">
+          <fieldset>
+            <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign in!">
+          </fieldset>
+        </form>
+    </div>
+
     </body>
 </html>

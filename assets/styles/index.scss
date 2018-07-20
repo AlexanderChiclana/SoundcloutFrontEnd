@@ -1,2 +1,18 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+#main{
+  text-align: center;
+
+}
+
+#globe{
+  height: 20%;
+  width: 20%;
+}
+
+body{
+  background-color: #C7E5CC;
+  // background-color: #CAE2CC;
+  font-family: 'Berkshire Swash', cursive;
+}

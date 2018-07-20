@@ -26,9 +26,46 @@ const signInFailure = function (error) {
   console.error('signInFailure ran. Error is :', error)
 }
 
+const onIndexSuccess = function (data) {
+  console.table(data.albums)
+
+  // clear content section
+  $('#content').html('')
+
+  data.albums.forEach(album => {
+    const albumHTML = (`
+
+      <h4>Title: ${album.title}</h4>
+      <p>Artist: ${album.artist}</p>
+      <br>
+
+
+    `)
+
+    $('#content').append(albumHTML)
+  })
+}
+
+const onError = function (err) {
+  console.error(err)
+
+  $('#message').text('Something went wrong with that last request!')
+
+  // 5 seconds after the message appears, clear it
+  setTimeout(() => $('#message').text(''), 5000)
+}
+
+const onUpdateSuccess = function () {
+  console.log('You successfully updated the album!')
+  $('#content').html('')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  onIndexSuccess,
+  onError,
+  onUpdateSuccess
 }

@@ -32,8 +32,37 @@ $(() => {
       .catch(ui.signInFailure)
   }
 
-    $('#sign-up').on('submit', onSignUp)
-    $('#sign-in').on('submit', onSignIn)
 
+  const onGetBooks = function (event) {
+    event.preventDefault()
+    api.index()
+      .then(ui.onIndexSuccess)
+      .catch(ui.onError)
+  }
+
+  const onUpdateBook = function (event) {
+    event.preventDefault()
+    const data = getFormFields(event.target)
+    console.log(data)
+    // const album = data.album
+    // if (album.title === '') {
+    //   // alert('title required')
+    //   $('#content').html('<p>Title is required</p>')
+    //   $('#content').css('background-color', 'red')
+    //   return false
+    // }
+    // if (album.id.length !== 0) {
+      api.update(data)
+        .then(ui.onUpdateSuccess)
+        .catch(ui.onError)
+    // } else {
+    //   console.log('Please provide a book id!')
+    // }
+  }
+
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#books-search').on('submit', onGetBooks)
+  $('#book-update').on('submit', onUpdateBook)
 
 })

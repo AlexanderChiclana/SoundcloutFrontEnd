@@ -18,7 +18,24 @@ const signIn = function (data) {
     // data: data
   })
 }
+
+const index = function () {
+  return $.ajax({
+    url: config.apiUrl + '/albums',
+    method: 'GET'
+  })
+}
+
+const update = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/albums/' + data.album.id,
+    method: 'PATCH',
+    data
+  })
+}
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  index,
+  update
 }

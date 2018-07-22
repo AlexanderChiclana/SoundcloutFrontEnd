@@ -26,25 +26,64 @@ const signInFailure = function (error) {
   console.error('signInFailure ran. Error is :', error)
 }
 
-const onIndexSuccess = function (data) {
+const onPostReviewSuccess = function (data) {
+  $('#message').text('Posted Review successfully')
+  $('#message').css('background-color', 'green')
+  console.log('review data', data)
+}
+
+const onCommunityAlbumSuccess = function (data) {
   console.table(data.albums)
 
-  // clear content section
   $('#content').html('')
+
+
 
   data.albums.forEach(album => {
     const albumHTML = (`
 
-      <h4>Title: ${album.title}</h4>
-      <p>Artist: ${album.artist}</p>
-      <br>
+      <h4>Album:${album.title}</h4>
+      <p>Artist:${album.artist}</p>
+      <p> ID: ${album.id}</p>
 
+
+      <br>
 
     `)
 
     $('#content').append(albumHTML)
   })
 }
+const onIndexSuccess = function (data) {
+  console.log(data.discs)
+  // data.discs is the array to iterate over and find each item.
+  // loop over array data.discs[i] where for each
+  // if data.discs[i].user.id equals store.user.id THEN console.log(data.discs[i])
+  console.log(data.discs.length)
+  //
+  for (let i = 0; i < data.discs.length; i++) {
+    if (data.discs[i].user.id === store.user.id) {
+      console.log('match successful')
+      $('#content').append(
+        `<h4>Name:${data.discs[i].album.title}</h4>
+         <p>Artist: ${data.discs[i].album.artist}</p>
+         <p>Year: ${data.discs[i].album.year}</p>
+         <p>Rating: ${data.discs[i].rating}
+        `)
+
+    } else {
+      console.log(' match unsuccessful')
+    }
+  }
+  //
+  // console.log(data.discs[0].user.id)
+  // if (data.discs[0].user.id === store.user.id) {
+  //   console.log('conntection successful')
+  // } else {
+  //   console.log('unsuccessful')
+  // }
+}
+
 
 const onError = function (err) {
   console.error(err)
@@ -60,6 +99,22 @@ const onUpdateSuccess = function () {
   $('#content').html('')
 }
 
+const onPostSuccess = function () {
+  console.log('You successfully updated the album!')
+  $('#content').html('')
+}
+
+const onGetMyAlbumSucess = function (data) {
+  console.table(data)
+
+  // clear content section
+  $('#content').html('')
+
+
+
+  $('#content').append(data.collection)
+
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -67,5 +122,8 @@ module.exports = {
   signInFailure,
   onIndexSuccess,
   onError,
-  onUpdateSuccess
+  onUpdateSuccess,
+  onPostSuccess,
+  onGetMyAlbumSucess,
+  onCommunityAlbumSuccess
 }

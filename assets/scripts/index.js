@@ -40,6 +40,13 @@ $(() => {
       .catch(ui.onError)
   }
 
+  const onCommunityAlbums = function (event) {
+    event.preventDefault()
+    api.communityIndex()
+      .then(ui.onCommunityAlbumSuccess)
+      .catch(ui.onError)
+  }
+
   const onUpdateBook = function (event) {
     event.preventDefault()
     const data = getFormFields(event.target)
@@ -60,9 +67,42 @@ $(() => {
     // }
   }
 
+  const onPostAlbum = function (event) {
+    event.preventDefault()
+    const data = getFormFields(event.target)
+    console.log(data)
+
+      api.post(data)
+        .then(ui.onPostSuccess)
+        .catch(ui.onError)
+
+  }
+
+  const onPostReview = function (event) {
+    event.preventDefault()
+    // const data = getFormFields(event.target)
+    // console.log(data)
+
+      api.postReview()
+        .then(ui.onPostReviewSuccess)
+        .catch(ui.onError)
+
+  }
+
+  const onGetMyAlbums = function (event) {
+    event.preventDefault()
+    api.collect()
+      .then(ui.onGetMyAlbumSucess)
+      .catch(ui.onError)
+  }
+
+
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#books-search').on('submit', onGetBooks)
   $('#book-update').on('submit', onUpdateBook)
-
+  $('#album-post').on('submit', onPostAlbum)
+  $('#getMyAlbums').on('click', onGetMyAlbums)
+  $('#allAlbums').on('submit', onCommunityAlbums)
+  $('#ratingPost').on('submit', onPostReview)
 })

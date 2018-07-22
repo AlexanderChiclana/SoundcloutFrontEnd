@@ -38,8 +38,13 @@
         </form>
 
         <form class="books" id="books-search">
-          <button type="submit" class="btn btn-default">Get All Albums</button>
+          <button type="submit" class="btn btn-default">My Collection</button>
         </form>
+
+        <form class="books" id="allAlbums">
+          <button type="submit" class="btn btn-default">Community Albums</button>
+        </form>
+
 
         <h2>Update One Album</h2>
         <form class="books" id="book-update">
@@ -51,8 +56,37 @@
           <button type="submit" class="btn btn-default">Update Album</button>
         </form>
 
+        <h2>Post One Album</h2>
+        <form class="books" id="album-post">
+          <div class="form-group">
+            <input type="text" name="album[title]" placeholder="Album Title Here">
+            <input type="text" name="album[artist]" placeholder="Artist Title Here">
+            <input type="text" name="album[year]" placeholder="Year">
+          </div>
+          <button type="submit" class="btn btn-default">Post Album</button>
+        </form>
+
+        <h2>Rate One Album</h2>
+        <form class="books" id="ratingPost">
+          <div class="form-group">
+            <input type="text" name="disc[album_id]" placeholder="Album ID">
+            <input type="text" name="disc[rating]" placeholder="Rate from 1 -5">
+          </div>
+
+          <button type="submit" class="btn btn-default">Rate Album</button>
+        </form>
+
+        <button class="btn btn-default" id="clear">Clear Collection</button>
+
+        <div id="getMyAlbums"> </br> history </div>
+        <div id="albumHistory">
+        </div>
+
         <section id="message"></section>
+
         <div id="content"></div>
+
+        <div id="communityContent"></div>
     </div>
 
     </body>

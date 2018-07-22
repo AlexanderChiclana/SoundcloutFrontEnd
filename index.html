@@ -14,11 +14,16 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <header>
+
+      </header>
       <div id="main">
-      <h1>SoundClout</h1>
+      <h1 id="title">SoundClout</h1>
       <img src="http://vinylgif.com/gifs/201412/vinyl-globe-animation.gif" id="globe">
 
+      <div id="entry">
       <form id="sign-up" class="border">
+      </br>
         <fieldset>
           <legend>Sign up!</legend>
           <input type="text" name="credentials[email]" placeholder="Email">
@@ -29,6 +34,8 @@
       </form>
 
       <form id="sign-in" class="border">
+        </br>
+
           <fieldset>
             <legend>Sign in!</legend>
             <input type="text" name="credentials[email]" placeholder="Email">
@@ -36,6 +43,9 @@
             <input type="submit" value="Sign in!">
           </fieldset>
         </form>
+
+      </div>
+        <div class="hiddenContent">
 
         <form class="books" id="books-search">
           <button type="submit" class="btn btn-default">My Collection</button>
@@ -69,8 +79,8 @@
         <h2>Rate One Album</h2>
         <form class="books" id="ratingPost">
           <div class="form-group">
-            <input type="text" name="disc[album_id]" placeholder="Album ID">
-            <input type="text" name="disc[rating]" placeholder="Rate from 1 -5">
+            <input type="text" name="disc[album_id]" placeholder="Album ID" id="albumId">
+            <input type="text" name="disc[rating]" placeholder="Rate from 1 - 5" id="rating">
           </div>
 
           <button type="submit" class="btn btn-default">Rate Album</button>
@@ -87,6 +97,7 @@
         <div id="content"></div>
 
         <div id="communityContent"></div>
+      </div>
     </div>
 
     </body>

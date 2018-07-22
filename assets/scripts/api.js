@@ -1,6 +1,7 @@
 const config = require('./config')
 const store = require('./store')
 
+
 const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
@@ -42,6 +43,7 @@ const update = function (data) {
 }
 
 const post = function (data) {
+  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/albums/',
     method: 'POST',
@@ -49,15 +51,35 @@ const post = function (data) {
   })
 }
 
-const postReview = function () {
+// const postReview = function () {
+//   console.log(formValue)
+//   return $.ajax({
+//     url: config.apiUrl + '/discs',
+//     method: 'POST',
+//     data: {
+//       'disc': {
+//         'user_id': store.user.id,
+//         'album_id': '4',
+//         'rating': '4'
+//       }
+//     }
+
+//   })
+// }
+
+const postReview = function (data) {
+  console.log(data)
+  console.log(data.disc.album_id)
+  console.log(data.disc.rating)
   return $.ajax({
     url: config.apiUrl + '/discs',
     method: 'POST',
+
     data: {
       'disc': {
-        'user_id': '2',
-        'album_id': '4',
-        'rating': '4'
+        'user_id': store.user.id,
+        'album_id': data.disc.album_id,
+        'rating': data.disc.rating
       }
     }
 

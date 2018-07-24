@@ -102,6 +102,14 @@ $(() => {
     $('#communityContent').html('')
   }
 
+  const getAvg = function (event) {
+    event.preventDefault()
+    const data = getFormFields(event.target)
+    api.index()
+      .then(ui.onAvgSuccess(data))
+      .catch(ui.onError)
+  }
+
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#books-search').on('submit', onGetBooks)
@@ -111,4 +119,5 @@ $(() => {
   $('#allAlbums').on('submit', onCommunityAlbums)
   $('#ratingPost').on('submit', onPostReview)
   $('#clear').on('click', clearFields)
+  $('#albumAvg').on('submit', getAvg)
 })

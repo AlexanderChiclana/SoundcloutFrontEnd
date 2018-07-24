@@ -23,7 +23,10 @@ const signIn = function (data) {
 const index = function () {
   return $.ajax({
     url: config.apiUrl + '/discs',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -81,6 +84,9 @@ const postReview = function (data) {
         'album_id': data.disc.album_id,
         'rating': data.disc.rating
       }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
     }
 
   })
@@ -93,6 +99,13 @@ const collect = function () {
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
+  })
+}
+
+const indexOwners = function () {
+  return $.ajax({
+    url: config.apiUrl + '/discs',
+    method: 'GET'
   })
 }
 

@@ -20,6 +20,7 @@ const signInSuccess = function (data) {
 
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
+  $('#getMyAlbums').click()
 }
 
 const signInFailure = function (error) {
@@ -86,6 +87,49 @@ const onIndexSuccess = function (data) {
   // }
 }
 
+// const onGetOwnersSucess = function (data) {
+//   console.log(data.discs)
+
+//   console.log(data.discs.length)
+
+//   for (let i = 0; i < data.discs.length; i++) {
+//     if (data.discs[i].user.id === store.user.id) {
+//       console.log('match successful')
+//       $('#content').append(
+//         `<h4>Name:${data.discs[i].album.title}</h4>
+//          <p>Artist: ${data.discs[i].album.artist}</p>
+//          <p>Year: ${data.discs[i].album.year}</p>
+//          <p>Rating: ${data.discs[i].rating}
+//         `)
+
+//     } else {
+//       console.log(' match unsuccessful')
+//     }
+//   }
+// }
+
+// const onAvgSuccess = function (data) {
+//   // data.discs is the array to iterate over and find each item.
+//   // loop over array data.discs[i] where for each
+//   // if data.discs[i].user.id equals store.user.id THEN console.log(data.discs[i])
+//   console.log(data.disc.album_id)
+//   let albumId = data.disc.album_id
+//   //
+//   for (let i = 0; i < data.discs.length; i++) {
+//     if (data.discs[i].user.id === store.user.id) {
+//       console.log('match successful')
+//       $('#content').append(
+//         `<h4>Name:${data.discs[i].album.title}</h4>
+//          <p>Artist: ${data.discs[i].album.artist}</p>
+//          <p>Year: ${data.discs[i].album.year}</p>
+//          <p>Rating: ${data.discs[i].rating}
+//         `)
+
+//     } else {
+//       console.log(' match unsuccessful')
+//     }
+//   }
+// }
 
 const onError = function (err) {
   console.error(err)
@@ -107,14 +151,14 @@ const onPostSuccess = function () {
 }
 
 const onGetMyAlbumSucess = function (data) {
-  console.table(data)
-
+  // console.log(data.user.collection)
+  let bio = data.user.collection
   // clear content section
-  $('#content').html('')
+  console.log(bio)
+  $('#bio').text(bio)
 
 
 
-  $('#content').append(data.collection)
 
 }
 module.exports = {
@@ -127,5 +171,6 @@ module.exports = {
   onUpdateSuccess,
   onPostSuccess,
   onGetMyAlbumSucess,
-  onCommunityAlbumSuccess
+  onCommunityAlbumSuccess,
+  onPostReviewSuccess
 }

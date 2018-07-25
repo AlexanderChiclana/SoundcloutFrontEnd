@@ -14,10 +14,11 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
+  $('#panel').css('display', 'block')
   $('#message').text('Signed in successfully')
   $('.hiddenContent').css('display', 'block')
   $('.navbar').css('visibility', 'visible')
-
+  $('#communityContent').css('display','block')
   $('#entry').css('display', 'none')
   $('#clearContent').css('display', 'none')
   console.log('signInSuccess ran. Data is :', data)
@@ -61,12 +62,12 @@ const onPostReviewSuccess = function (data) {
 // used for putting into table
 const onCommunityAlbumSuccess = function (data) {
   console.table(data.albums)
-
+  $("#communityContent").html('<h3>Community Library</h3>')
   data.albums.forEach(album => {
     const albumHTML = (`
     <table>
       <tr>
-      <td class="ratingData">ID:${album.id}</td>
+      <td class="ratingData">${album.id}</td>
       <td> ${album.title}</td>
       <td> ${album.artist}</td>
 
@@ -107,6 +108,7 @@ const onCommunityAlbumSuccess = function (data) {
 // this one is used for pushing data into a table
 const onIndexSuccess = function (data) {
   console.log(data.discs)
+  $('#content').html('<h3>My Collection</h3>')
   // data.discs is the array to iterate over and find each item.
   // loop over array data.discs[i] where for each
   // if data.discs[i].user.id equals store.user.id THEN console.log(data.discs[i])
@@ -119,11 +121,11 @@ const onIndexSuccess = function (data) {
       $('#content').append(`
         <table>
           <tr>
-          <td>${data.discs[i].id}</td>
+          <td class="ratingData">${data.discs[i].id}</td>
         <td>${data.discs[i].album.title}</td>
-         <td>Artist: ${data.discs[i].album.artist}</td>
-         <td>Year: ${data.discs[i].album.year}</td>
-         <td class="ratingData">Rating: ${data.discs[i].rating}</td>
+         <td>${data.discs[i].album.artist}</td>
+         <td class="yearData">${data.discs[i].album.year}</td>
+         <td class="ratingData"> |  score| ${data.discs[i].rating}</td>
          </tr>
          </table>
         `)
@@ -179,6 +181,15 @@ const onGetMyAlbumSucess = function (data) {
 
 }
 
+const signOutSuccess = function () {
+  console.log('You successfully got outta here!')
+  $('#main').css('display','none')
+  $('#exitScreen').css('display', 'block')
+  window.location.reload()
+}
+
+
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -190,5 +201,6 @@ module.exports = {
   onPostSuccess,
   onGetMyAlbumSucess,
   onCommunityAlbumSuccess,
-  onPostReviewSuccess
+  onPostReviewSuccess,
+  signOutSuccess
 }

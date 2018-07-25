@@ -128,9 +128,13 @@ $(() => {
     console.log('hi')
   }
 
-  const clearPage = function () {
-    console.log('clearing')
-    $('#wipe').css('display', 'none')
+  const onSignOut = function (event) {
+    event.preventDefault()
+    console.log('sign out ran')
+
+    api.signOut()
+      .then(ui.signOutSuccess)
+      .catch(ui.onError)
   }
 
   $('#sign-up').on('submit', onSignUp)
@@ -146,5 +150,5 @@ $(() => {
 
   $('#edit').on('click', editAlbums)
   $('#albumDelete').on('submit', onDeleteAlbum)
-  $('#signOut').on('click', clearPage)
+  $('#signOut').on('click', onSignOut)
 })

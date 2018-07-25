@@ -138,6 +138,13 @@ $(() => {
       .catch(ui.onError)
   }
 
+  const postSection = function () {
+    $('#stageOne').css('display', 'block')
+    $('#stageTwo').css('display', 'none')
+    console.log('hi')
+  }
+
+
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#books-search').on('submit', onGetAlbums)
@@ -152,4 +159,5 @@ $(() => {
   $('#edit').on('click', editAlbums)
   $('#albumDelete').on('submit', onDeleteAlbum)
   $('#signOut').on('click', onSignOut)
+  $('#postSection').on('click',postSection)
 })

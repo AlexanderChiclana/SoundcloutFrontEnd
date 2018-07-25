@@ -74,8 +74,9 @@
               <li id="edit">
                 <a href="#">Edit Albums</a>
               </li>
-              <li>
-                <a href="#">Remove Album</a>
+              <li id="postSection">
+
+                <a href="#">Add to Collections</a>
               </li>
               <!-- <li>
                 <a href="#">Something else here</a>
@@ -188,7 +189,7 @@
     <div id="panel">
       <div id="stageTwo">
 
-        <h2 id="patchAlbum">Update Community Album</h2>
+        <h2 id="patchAlbum" class="panelFont">Update Community Album</h2>
         <form class="books" id="book-update">
           <div class="form-group">
             <input type="text" name="album[id]" id="book-id-update" placeholder="Resource ID Here">
@@ -199,7 +200,7 @@
 
         </form>
 
-        <h2 id="deleteAlbum">Delete from Collection</h2>
+        <h2 id="deleteAlbum" class="panelFont">Delete from Collection</h2>
         <form class="books" id="albumDelete">
           <div class="form-group">
             <input type="text" name="album[id]" id="albumDeleteForm" placeholder="Resource ID Here">
@@ -213,7 +214,7 @@
 
       <div id="stageOne">
 
-        <h2>Post One Album</h2>
+        <h2 class="panelFont">Post One Album</h2>
         <form class="books" id="album-post">
           <div class="form-group">
             <input type="text" name="album[title]" placeholder="Album Title Here">
@@ -224,7 +225,7 @@
         </form>
 
 
-        <h2>Rate One Album</h2>
+        <h2 class="panelFont">Rate One Album</h2>
         <form class="books" id="ratingPost">
           <div class="form-group">
             <input type="text" name="disc[album_id]" placeholder="Album ID" id="albumId">

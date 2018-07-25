@@ -33,7 +33,7 @@ $(() => {
   }
 
 
-  const onGetBooks = function (event) {
+  const onGetAlbums = function (event) {
     event.preventDefault()
     api.index()
       .then(ui.onIndexSuccess)
@@ -47,7 +47,7 @@ $(() => {
       .catch(ui.onError)
   }
 
-  const onUpdateBook = function (event) {
+  const onUpdateAlbum = function (event) {
     event.preventDefault()
     const data = getFormFields(event.target)
     console.log(data)
@@ -59,22 +59,34 @@ $(() => {
     //   return false
     // }
     // if (album.id.length !== 0) {
-      api.update(data)
-        .then(ui.onUpdateSuccess)
-        .catch(ui.onError)
+    api.update(data)
+      .then(ui.onUpdateSuccess)
+      .catch(ui.onError)
     // } else {
     //   console.log('Please provide a book id!')
     // }
   }
+
+  const onDeleteAlbum = function (event) {
+    event.preventDefault()
+    const data = getFormFields(event.target)
+    console.log(data)
+
+    api.destroy(data)
+      .then(ui.onDeleteSuccess)
+      .catch(ui.onError)
+
+  }
+
 
   const onPostAlbum = function (event) {
     event.preventDefault()
     const data = getFormFields(event.target)
     console.log(data)
 
-      api.post(data)
-        .then(ui.onPostSuccess)
-        .catch(ui.onError)
+    api.post(data)
+      .then(ui.onPostSuccess)
+      .catch(ui.onError)
 
   }
 
@@ -83,9 +95,9 @@ $(() => {
     const data = getFormFields(event.target)
     // console.log(data)
 
-      api.postReview(data)
-        .then(ui.onPostReviewSuccess)
-        .catch(ui.onError)
+    api.postReview(data)
+      .then(ui.onPostReviewSuccess)
+      .catch(ui.onError)
 
   }
 
@@ -102,22 +114,37 @@ $(() => {
     $('#communityContent').html('')
   }
 
-  const getAvg = function (event) {
-    event.preventDefault()
-    const data = getFormFields(event.target)
-    api.index()
-      .then(ui.onAvgSuccess(data))
-      .catch(ui.onError)
+  // const getAvg = function (event) {
+  //   event.preventDefault()
+  //   const data = getFormFields(event.target)
+  //   api.index()
+  //     .then(ui.onAvgSuccess(data))
+  //     .catch(ui.onError)
+  // }
+
+  const editAlbums = function () {
+    $('#stageOne').css('display', 'none')
+    $('#stageTwo').css('display', 'block')
+    console.log('hi')
+  }
+
+  const clearPage = function () {
+    console.log('clearing')
+    $('#wipe').css('display', 'none')
   }
 
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#books-search').on('submit', onGetBooks)
-  $('#book-update').on('submit', onUpdateBook)
+  $('#books-search').on('submit', onGetAlbums)
+  $('#book-update').on('submit', onUpdateAlbum)
   $('#album-post').on('submit', onPostAlbum)
   $('#getMyAlbums').on('click', onGetMyAlbums)
   $('#allAlbums').on('submit', onCommunityAlbums)
   $('#ratingPost').on('submit', onPostReview)
   $('#clear').on('click', clearFields)
-  $('#albumAvg').on('submit', getAvg)
+  // $('#albumAvg').on('submit', getAvg)
+
+  $('#edit').on('click', editAlbums)
+  $('#albumDelete').on('submit', onDeleteAlbum)
+  $('#signOut').on('click', clearPage)
 })

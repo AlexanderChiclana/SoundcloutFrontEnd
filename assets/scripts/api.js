@@ -45,6 +45,17 @@ const update = function (data) {
   })
 }
 
+const destroy = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/discs/' + data.album.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const post = function (data) {
   console.log(data)
   return $.ajax({
@@ -117,5 +128,6 @@ module.exports = {
   post,
   collect,
   communityIndex,
-  postReview
+  postReview,
+  destroy
 }

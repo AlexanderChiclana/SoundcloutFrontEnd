@@ -22,7 +22,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-top: 50px;
 }
 .navbar{
-  visibility: hidden;;
+  visibility: hidden;
+  // background-color: #010201;
+  // color: white;
 }
 
 #globe{
@@ -34,6 +36,7 @@ body{
   background-color: #C7E5CC;
   // background-color: #CAE2CC;
   font-family: 'Berkshire Swash', cursive;
+
 
 }
 

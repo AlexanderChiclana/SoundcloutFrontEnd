@@ -34,6 +34,7 @@ $(() => {
 
 
   const onGetAlbums = function (event) {
+
     event.preventDefault()
     api.index()
       .then(ui.onIndexSuccess)

@@ -24,9 +24,14 @@ const signInSuccess = function (data) {
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
   $('#getMyAlbums').click()
-  $('body').css("background-image", "url(https://wallpaper-house.com/data/out/9/wallpaper2you_353822.jpg)")
+  // $('body').css("background-image", "url(https://wallpaper-house.com/data/out/9/wallpaper2you_353822.jpg)")
+  // $('body').css("background-image", "url(https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.wonderfulengineering.com%2Fwp-content%2Fuploads%2F2014%2F07%2Fbackground-wallpapers-34.jpg&f=1)")
+  $('body').css("background-image","url(https://images.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-nvd8ZvgKh9Q%2FUBQgoMess1I%2FAAAAAAAAGso%2F2ZD7nOMApn4%2Fs1600%2FWood%2BWallpapers%2B2.jpg&f=1)")
   $('#allAlbums').submit()
   $('#books-search').submit()
+  let name = data.user.email
+
+  $('#name').text(name)
 }
 
 const signInFailure = function (error) {

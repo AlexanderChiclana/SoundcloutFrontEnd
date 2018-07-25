@@ -193,6 +193,15 @@ const signOutSuccess = function () {
   window.location.reload()
 }
 
+const changePasswordSuccess = function () {
+  $('.out-modal-content').css('border-color', 'green')
+  // console.log('changePasswordSuccess ran and nothing was returned!')
+}
+
+const changePasswordFailure = function (error) {
+  $('.out-modal-content').css('border-color', 'red')
+  console.error('changePasswordFailure ran. Error is :', error)
+}
 
 
 module.exports = {
@@ -207,5 +216,7 @@ module.exports = {
   onGetMyAlbumSucess,
   onCommunityAlbumSuccess,
   onPostReviewSuccess,
-  signOutSuccess
+  signOutSuccess,
+  changePasswordSuccess,
+  changePasswordFailure
 }

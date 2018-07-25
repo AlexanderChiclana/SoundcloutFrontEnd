@@ -144,6 +144,20 @@ $(() => {
     console.log('hi')
   }
 
+  const onChangePassword = function (event) {
+    event.preventDefault()
+    // console.log('change password ran!')
+
+    const data = getFormFields(this)
+    api.changePassword(data)
+      .then(ui.changePasswordSuccess)
+      .catch(ui.changePasswordFailure)
+  }
+
+  const changePasswordSection = function () {
+    console.log('clearing')
+    $('#stageThree').css('display', 'block')
+  }
 
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -160,4 +174,5 @@ $(() => {
   $('#albumDelete').on('submit', onDeleteAlbum)
   $('#signOut').on('click', onSignOut)
   $('#postSection').on('click',postSection)
+  $('#changePassword').on('click', changePasswordSection)
 })

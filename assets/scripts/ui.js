@@ -174,11 +174,8 @@ const onPostSuccess = function () {
 const onGetMyAlbumSucess = function (data) {
   // console.log(data.user.collection)
 
-  let bio = data.user.collection
   // clear content section
   let name = data.user.email
-  console.log(bio)
-  $('#bio').text(bio)
   $('#name').html(name)
   $('#content').css('display', 'block')
 

@@ -156,7 +156,9 @@ $(() => {
 
   const changePasswordSection = function () {
     console.log('clearing')
-    $('#stageThree').css('display', 'block')
+    $('#stageOne').css('display', 'none')
+    $('#stageTwo').css('display', 'none')
+    $('#changePassSpace').css('display','block')
   }
 
   $('#sign-up').on('submit', onSignUp)
@@ -175,4 +177,5 @@ $(() => {
   $('#signOut').on('click', onSignOut)
   $('#postSection').on('click',postSection)
   $('#changePassword').on('click', changePasswordSection)
+  $('#change-password').on('submit', onChangePassword)
 })

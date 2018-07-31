@@ -143,8 +143,8 @@
       <div id="entry">
         <form id="sign-up" class="border">
           </br>
-          <fieldset>
-            <legend>Sign up!</legend>
+          <fieldset id="signUpField">
+            <legend id="signUpHead">Sign up!</legend>
             <input type="text" name="credentials[email]" placeholder="Email">
             <input type="password" name="credentials[password]" placeholder="Password">
             <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
@@ -156,7 +156,7 @@
           </br>
 
           <fieldset>
-            <legend>Sign in!</legend>
+            <legend id="signInHead">Sign in!</legend>
             <input type="text" name="credentials[email]" placeholder="Email">
             <input type="password" name="credentials[password]" placeholder="Password">
             <input type="submit" value="Sign in!">
@@ -237,6 +237,19 @@
         </br>
 
       </div>
+
+      <div id="changePassSpace">
+        <form id="change-password" class="border">
+          <fieldset>
+            <legend>Change__Password!</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password" class="buttons">
+            <input type="password" name="passwords[new]" placeholder="New Password" class="buttons">
+            <input type="submit" value="Change Password!" class="buttons">
+          </fieldset>
+        </form>
+      </div>
+
+
       <div id="bio">
       </div>
       </br>

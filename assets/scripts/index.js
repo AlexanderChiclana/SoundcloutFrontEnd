@@ -12,6 +12,7 @@ const ui = require('./ui')
 
 $(() => {
 
+
   const onSignUp = function (event) {
     event.preventDefault()
     // console.log('sign up ran!')

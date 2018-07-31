@@ -9,6 +9,8 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function (error) {
   $('#signUpHead').text('Error, please try again')
+  $('#sign-up')[0].reset()
+
   // $('#message').css('background-color', 'red')
   console.error('signUpFailure ran. Error is :', error)
 }
@@ -37,6 +39,8 @@ const signInSuccess = function (data) {
 const signInFailure = function (error) {
   $('#signInHead').text('Error on sign in, please try again')
   $('#signInHead').css('background-color', 'red')
+  $('#sign-in')[0].reset()
+
   console.error('signInFailure ran. Error is :', error)
 }
 

@@ -46,7 +46,7 @@ const update = function (data) {
 }
 
 const destroy = function (data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + '/discs/' + data.album.id,
     method: 'DELETE',
@@ -57,7 +57,7 @@ const destroy = function (data) {
 }
 
 const post = function (data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + '/albums/',
     method: 'POST',
@@ -66,7 +66,7 @@ const post = function (data) {
 }
 
 // const postReview = function () {
-//   console.log(formValue)
+  // console.log(formValue)
 //   return $.ajax({
 //     url: config.apiUrl + '/discs',
 //     method: 'POST',
@@ -82,9 +82,9 @@ const post = function (data) {
 // }
 
 const postReview = function (data) {
-  console.log(data)
-  console.log(data.disc.album_id)
-  console.log(data.disc.rating)
+  // console.log(data)
+  // console.log(data.disc.album_id)
+  // console.log(data.disc.rating)
   return $.ajax({
     url: config.apiUrl + '/discs',
     method: 'POST',

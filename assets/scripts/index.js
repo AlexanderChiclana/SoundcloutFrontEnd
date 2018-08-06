@@ -12,9 +12,10 @@ const ui = require('./ui')
 
 $(() => {
 
+
   const onSignUp = function (event) {
     event.preventDefault()
-    console.log('sign up ran!')
+    // console.log('sign up ran!')
 
     const data = getFormFields(this)
     api.signUp(data)
@@ -24,7 +25,7 @@ $(() => {
 
   const onSignIn = function (event) {
     event.preventDefault()
-    console.log('sign in ran!')
+    // console.log('sign in ran!')
 
     const data = getFormFields(this)
     api.signIn(data)
@@ -51,7 +52,7 @@ $(() => {
   const onUpdateAlbum = function (event) {
     event.preventDefault()
     const data = getFormFields(event.target)
-    console.log(data)
+    // console.log(data)
     // const album = data.album
     // if (album.title === '') {
     //   // alert('title required')
@@ -71,7 +72,7 @@ $(() => {
   const onDeleteAlbum = function (event) {
     event.preventDefault()
     const data = getFormFields(event.target)
-    console.log(data)
+    // console.log(data)
 
     api.destroy(data)
       .then(ui.onDeleteSuccess)
@@ -83,7 +84,7 @@ $(() => {
   const onPostAlbum = function (event) {
     event.preventDefault()
     const data = getFormFields(event.target)
-    console.log(data)
+    // console.log(data)
 
     api.post(data)
       .then(ui.onPostSuccess)
@@ -126,12 +127,12 @@ $(() => {
   const editAlbums = function () {
     $('#stageOne').css('display', 'none')
     $('#stageTwo').css('display', 'block')
-    console.log('hi')
+    // console.log('hi')
   }
 
   const onSignOut = function (event) {
     event.preventDefault()
-    console.log('sign out ran')
+    // console.log('sign out ran')
 
     api.signOut()
       .then(ui.signOutSuccess)
@@ -141,7 +142,7 @@ $(() => {
   const postSection = function () {
     $('#stageOne').css('display', 'block')
     $('#stageTwo').css('display', 'none')
-    console.log('hi')
+    // console.log('hi')
   }
 
   const onChangePassword = function (event) {
@@ -155,8 +156,10 @@ $(() => {
   }
 
   const changePasswordSection = function () {
-    console.log('clearing')
-    $('#stageThree').css('display', 'block')
+    // console.log('clearing')
+    $('#stageOne').css('display', 'none')
+    $('#stageTwo').css('display', 'none')
+    $('#changePassSpace').css('display','block')
   }
 
   $('#sign-up').on('submit', onSignUp)
@@ -175,4 +178,5 @@ $(() => {
   $('#signOut').on('click', onSignOut)
   $('#postSection').on('click',postSection)
   $('#changePassword').on('click', changePasswordSection)
+  $('#change-password').on('submit', onChangePassword)
 })

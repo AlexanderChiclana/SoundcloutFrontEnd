@@ -2,13 +2,15 @@ const store = require('./store')
 
 
 const signUpSuccess = function (data) {
-  // $('#message').text('Signed up successfully')
+  $('#signUpField').html('Signed up successfully, please sign in')
   // $('#message').css('background-color', 'green')
-  console.log('signUpSuccess ran. Data is :', data)
+  // console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
-  // $('#message').text('Error on sign up')
+  $('#signUpHead').text('Error, please try again')
+  $('#sign-up')[0].reset()
+
   // $('#message').css('background-color', 'red')
   console.error('signUpFailure ran. Error is :', error)
 }
@@ -21,7 +23,7 @@ const signInSuccess = function (data) {
   $('#communityContent').css('display','block')
   $('#entry').css('display', 'none')
   $('#clearContent').css('display', 'none')
-  console.log('signInSuccess ran. Data is :', data)
+  // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
   $('#getMyAlbums').click()
   // $('body').css("background-image", "url(https://wallpaper-house.com/data/out/9/wallpaper2you_353822.jpg)")
@@ -35,8 +37,10 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
-  $('#message').css('background-color', 'red')
+  $('#signInHead').text('Error on sign in, please try again')
+  $('#signInHead').css('background-color', 'red')
+  $('#sign-ingit ')[0].reset()
+
   console.error('signInFailure ran. Error is :', error)
 }
 
@@ -45,7 +49,9 @@ const onPostReviewSuccess = function (data) {
   $('#message').css('background-color', 'green')
   $('#content').text('My Collection')
   $('#books-search').submit()
-  console.log('review data', data)
+  $('#ratingPost')[0].reset()
+
+  // console.log('review data', data)
 }
 
 // const onCommunityAlbumSuccess = function (data) {
@@ -66,7 +72,8 @@ const onPostReviewSuccess = function (data) {
 
 // used for putting into table
 const onCommunityAlbumSuccess = function (data) {
-  console.table(data.albums)
+
+  // console.table(data.albums)
   $("#communityContent").html('<h3>Community Library</h3>')
   data.albums.forEach(album => {
     const albumHTML = (`
@@ -112,17 +119,18 @@ const onCommunityAlbumSuccess = function (data) {
 
 // this one is used for pushing data into a table
 const onIndexSuccess = function (data) {
-  console.log(data.discs)
+  // console.log(data.discs)
   $('#content').html('<h3>My Collection</h3>')
+  $('#album-post').children('input').val('')
   // data.discs is the array to iterate over and find each item.
   // loop over array data.discs[i] where for each
   // if data.discs[i].user.id equals store.user.id THEN console.log(data.discs[i])
-  console.log(data.discs.length)
+  // console.log(data.discs.length)
   $('#content').css('display', 'block')
   //
   for (let i = 0; i < data.discs.length; i++) {
     if (data.discs[i].user.id === store.user.id) {
-      console.log('match successful')
+      // console.log('match successful')
       $('#content').append(`
         <table>
           <tr>
@@ -136,7 +144,7 @@ const onIndexSuccess = function (data) {
         `)
 
     } else {
-      console.log(' match unsuccessful')
+      // console.log(' match unsuccessful')
     }
   }
 
@@ -154,20 +162,26 @@ const onError = function (err) {
 }
 
 const onUpdateSuccess = function () {
-  console.log('You successfully updated the album!')
+  // console.log('You successfully updated the album!')
 
   $('#communityContent').html('Community Collection')
   $('#allAlbums').submit()
+  $('#book-update')[0].reset()
 
 }
 
 const onDeleteSuccess = function (){
-  console.log('You successfully deleted the album from your collection!')
+  $('#books-search').submit()
+  $('#albumDelete')[0].reset()
+
+  // console.log('You successfully deleted the album from your collection!')
 
 }
 
 const onPostSuccess = function () {
-  console.log('You successfully uploaded the community album!')
+  // console.log('You successfully uploaded the community album!')
+  $('#album-post')[0].reset()
+
   $('#allAlbums').submit()
 }
 
@@ -176,6 +190,8 @@ const onGetMyAlbumSucess = function (data) {
 
   // clear content section
   let name = data.user.email
+  // console.log(bio)
+  $('#bio').text(bio)
   $('#name').html(name)
   $('#content').css('display', 'block')
 
@@ -184,7 +200,7 @@ const onGetMyAlbumSucess = function (data) {
 }
 
 const signOutSuccess = function () {
-  console.log('You successfully got outta here!')
+  // console.log('You successfully got outta here!')
   $('#main').css('display','none')
   $('#exitScreen').css('display', 'block')
   window.location.reload()
@@ -215,5 +231,6 @@ module.exports = {
   onPostReviewSuccess,
   signOutSuccess,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  onDeleteSuccess
 }

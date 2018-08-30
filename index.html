@@ -16,8 +16,42 @@
 </head>
 
 <body>
+  <!-- modal -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">change password</h4>
+            </div>
+            <div class="modal-body">
+                <p>Password sucessfully changed</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
+<div id="myModal2" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">change password</h4>
+          </div>
+          <div class="modal-body">
+              <p>Password unsucessfully changed, please try again</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+  <!-- end modal -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -129,9 +163,11 @@
   <div id="main">
 
     <div id="clearContent">
+
       <h1 id="title">SoundClout</h1>
       <img src="http://vinylgif.com/gifs/201412/vinyl-globe-animation.gif" id="globe">
       <div id="entry">
+
         <form id="sign-up" class="border">
           </br>
           <fieldset id="signUpField">
@@ -164,7 +200,7 @@
 
     </div>
 
-
+    <div id="vanish">
 
     <div id="communityContent">
       <div class="collectionHead">Community Collection</div>
@@ -240,7 +276,6 @@
         </form>
       </div>
 
-
       <div id="bio">
       </div>
       </br>
@@ -257,6 +292,7 @@
           Login to different account
         </div>
     </div>
+
   </div>
 
 </body>

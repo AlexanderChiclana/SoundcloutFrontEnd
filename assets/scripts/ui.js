@@ -201,19 +201,25 @@ const onGetMyAlbumSucess = function (data) {
 
 const signOutSuccess = function () {
   // console.log('You successfully got outta here!')
-  $('#main').css('display','none')
-  $('#exitScreen').css('display', 'block')
-  window.location.reload()
+  $('#exitScreen').css('display', 'none')
+  $('#clearContent').css('display','block')
+  $('#vanish').css('display','none')
+  $('.navbar').css('display','none')
+  $('#entry').css('display','block')
+  $('body').css("background-image", 'none')
+  $('#message').text('')
+
 }
 
 const changePasswordSuccess = function () {
   $('.out-modal-content').css('border-color', 'green')
-  // console.log('changePasswordSuccess ran and nothing was returned!')
+  $('#myModal').modal('show')
+
 }
 
 const changePasswordFailure = function (error) {
   $('.out-modal-content').css('border-color', 'red')
-  console.error('changePasswordFailure ran. Error is :', error)
+  $('#myModal2').modal('show')
 }
 
 
